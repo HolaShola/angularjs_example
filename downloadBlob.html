@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+    <div  ng-controller="QuestionController">
+        <div class="quest">
+            <p>{{question.text}}</p>
+            <p>{{question.author}} </p> <p><i>{{question.date}}</i></p>
+        </div>
+        <p>Ответы</p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Object</th>
+                    <th>Price</th>
+                    <th>Buy</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in question.items">
+                    <td>{{item.purchase}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.done}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="{{downloadUrl}}"
+           target="_blank"
+           download="{{filename}}">
+           <button ng-click="exportTableToCSV()">{{buttonText}}</button>
+        </a>
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers/myController.js"></script>
+</body>
+</html>
