@@ -48,7 +48,7 @@ myApp.controller('QuestionController', function($scope, $window) {
         var downloadLink;
     
         // CSV file
-        csvFile = new Blob([csv], {type: "text/csv"});
+        csvFile = new Blob([csv], {type: 'text/csv;charset=utf-8'});
     
         // Download link
         downloadLink = document.createElement("a");
@@ -72,7 +72,6 @@ myApp.controller('QuestionController', function($scope, $window) {
     $scope.exportTableToCSV = function() {
         var csv = [];
         var rows = document.querySelectorAll("tr");
-        console.log(rows); 
        
        for (var i = 0; i < rows.length; i++) {
             var row = [], cols = rows[i].querySelectorAll("td, th");
@@ -86,7 +85,7 @@ myApp.controller('QuestionController', function($scope, $window) {
         console.log(csv);
         console.log(csv_str);
 
-    //    $scope.downloadFile(csv);
+    
         $scope.downloadCSV(csv_str, "myFile.csv");
     }
 });
