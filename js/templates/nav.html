@@ -1,0 +1,38 @@
+<nav class="navbar navbar-default" ng-controller="navCtrl">
+    <div class="navbar-header" ng-class="{'hide':isTopNavigationHidden}">
+      <svg class="wordmark light" viewBox="0 0 85.09 10.91"><defs><style>.cls-1{fill:#01a2d5;}.white{fill:#fff;}</style></defs><title>DJ-icon-and-logo</title>
+        <rect class="blue" x="16.74" width="0.81" height="10.91"></rect>
+        <path class="white" d="M13.32,7.18a2.15,2.15,0,0,0-.07-0.48,1.86,1.86,0,0,0-1.79-1.34H7.87v7.27H9.69v1.82H6.05V3.54h5.43a3.65,3.65,0,0,1,3.66,3.64H13.32Z" transform="translate(-6.05 -3.54)"></path>
+        <path class="white" d="M15.14,9v1.8a3.71,3.71,0,0,1-3.71,3.66h0.07V12.64H11.42a1.9,1.9,0,0,0,1.91-1.86V9h1.82Z" transform="translate(-6.05 -3.54)"></path>
+        <path class="white" d="M30.81,12.41v-7h2.86c1.82,0,2.86,1,2.86,2.58V9.83c0,1.54-1,2.58-2.86,2.58H30.81ZM35.08,8a1.26,1.26,0,0,0-1.41-1.25H32.26v4.32h1.41a1.26,1.26,0,0,0,1.41-1.25V8Z" transform="translate(-6.05 -3.54)"></path>
+        <path class="white" d="M41,12.51c-1.82,0-2.86-1-2.86-2.58v-2c0-1.54,1-2.58,2.86-2.58s2.86,1,2.86,2.58v2C43.88,11.48,42.84,12.51,41,12.51Zm1.41-4.59a1.42,1.42,0,0,0-2.82,0v2a1.42,1.42,0,0,0,2.82,0v-2Z" transform="translate(-6.05 -3.54)"></path>
+        <path class="white" d="M49.44,8.51l-1.23,3.9H46.64l-1.4-7h1.46l0.88,4.72L49,5.44h0.9l1.41,4.72,0.88-4.72h1.46l-1.4,7H50.67Z" transform="translate(-6.05 -3.54)"></path>
+        <path class="white" d="M61.3,5.44h1.45v5a2.26,2.26,0,0,1-4.51,0h1.46a0.74,0.74,0,0,0,.79.77,0.73,0.73,0,0,0,.8-0.81V5.44Z" transform="translate(-6.05 -3.54)"></path>
+        <path class="white" d="M67.38,12.51c-1.82,0-2.86-1-2.86-2.58v-2c0-1.54,1-2.58,2.86-2.58s2.86,1,2.86,2.58v2C70.24,11.48,69.2,12.51,67.38,12.51Zm1.41-4.59a1.42,1.42,0,0,0-2.82,0v2a1.42,1.42,0,0,0,2.82,0v-2Z" transform="translate(-6.05 -3.54)"></path>
+        <path class="white" d="M77.74,12.41H76.29L73.47,7.92v4.49H72v-7h1.45l2.82,4.49V5.44h1.45v7Z" transform="translate(-6.05 -3.54)"></path>
+        <path class="white" d="M81.11,8.23h2.83V9.55H81.11v1.53h3.16v1.32H79.66v-7h4.62V6.76H81.11V8.23Z" transform="translate(-6.05 -3.54)"></path>
+        <path class="white" d="M85.8,10.21h1.5a1.2,1.2,0,0,0,1.31,1c0.64,0,1.08-.22,1.08-0.7a0.79,0.79,0,0,0-.78-0.74l-1.28-.32A2,2,0,0,1,85.9,7.37c0-1.39,1.19-2,2.51-2a2.38,2.38,0,0,1,2.62,2h-1.5a1.12,1.12,0,0,0-1.15-.68,0.84,0.84,0,0,0-1,.71,0.78,0.78,0,0,0,.76.69l1.24,0.31a2,2,0,0,1,1.8,2.12c0,1.25-.89,2-2.54,2A2.5,2.5,0,0,1,85.8,10.21Z" transform="translate(-6.05 -3.54)"></path>
+      </svg>
+    </div>
+    <div ng-class="{'hide':isTopNavigationHidden}">
+      <div class="navbar-right">
+        <ul class="nav navbar-nav">
+          <li class="logout" ng-hide="auth.isAuthenticated()"><a href="/login" title="Log in">Login</a></li>
+          <li class="active" ng-show="auth.isAuthenticated()"><a href=""><i class="material-icons">person</i></span>{{auth.getProfile().email}}</a></li>
+          <li class="logout" ng-show="auth.isAuthenticated()"><a href="#/logout" title="Log out">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="navbar-bottom">
+      <ul class="nav navbar-nav">
+      <li class="nav-logo">
+        <h1><a href="#/" ng-click="navigate($event)">Riskreports</a></h1>
+      </li>
+        <li ng-class="{active: isSelected('/')}" ng-show="auth.isAuthenticated()"><a href="#/" ng-click="navigate($event)" title="View report requests">View Reports</a></li>
+        <li ng-class="{active: isSelected('/reportRequest')}"><a href="#/reportRequest" ng-click="navigate($event)" title="View report requests">Request Reports</a></li>
+        <li ng-class="{active: isSelected('/bulkUploads')}"><a href="#/bulkUploads" ng-click="navigate($event)" title="View report requests">Bulk Requests</a></li>
+        <li ng-class="{active: isSelected('/billingReport')}" ng-show="auth.isAdmin()"><a href="#/billingReport" ng-click="navigate($event)" title="View billing reports">Admin</a></li>
+        <li ng-class="{active: isSelected('/super_admin')}" ng-show="auth.isSuperAdmin()"><a href="#/super_admin" ng-click="navigate($event)" title="Manage accounts">Super Admin</a></li>
+      </ul>
+    </div>
+</nav>

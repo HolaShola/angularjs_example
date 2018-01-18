@@ -33,7 +33,20 @@
         </a>
         <div answer-list="question"></div>
     </div>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <div class="navigation">
+        <ul class="nav navbar-nav">
+            <li><a href="#/" ng-click="navigate($event)" title="one">One</a></li>
+            <li><a href="#/first" ng-click="navigate($event)" title="first">First</a></li>
+            <li><a href="#/second" ng-click="navigate($event)" title="second">Second</a></li>
+            <li><a href="#/three" ng-click="navigate($event)" title="three">Three</a></li>
+            <li><a href="#/four" ng-click="navigate($event)" title="four">Four</a></li>
+        </ul>
+    </div>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> -->
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+
 <script src="js/app.js"></script>
 <script src="js/controllers/myController.js"></script>
 <script src="js/directives/answerList.js"></script>
